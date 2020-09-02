@@ -11,9 +11,4 @@ const reducer = combineReducers({
 
 const store = createStore(reducer, composeWithDevTools())
 
-store.dispatch({
-  type: 'NEW_NOTIFICATION',
-  message: 'Test'
-});
-
 export default store;

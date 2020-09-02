@@ -5,10 +5,10 @@ export const newNotification = (message) => {
   };
 };
 
-export const removeNotification = () => {
+export const removeNotificationWithMessage = (message) => {
   return {
     type: 'REMOVE_NOTIFICATION',
-    message: ''
+    message
   };
 };
 
@@ -17,7 +17,9 @@ const notificationReducer = (state = '', action) => {
     case 'NEW_NOTIFICATION':
       return action.message;
     case 'REMOVE_NOTIFICATION':
-      return action.message;
+      return action.message === state
+        ? ''
+        : state
     default:
       return state;
   }
