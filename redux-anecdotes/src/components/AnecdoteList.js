@@ -30,6 +30,7 @@ const AnecdoteList = () => {
           content={anecdote.content}
           votes={anecdote.votes}
           handleClick={() => {
+            // anecdoteServcie.vote(anecdote.id).then(res => console.log(res));
             dispatch(voteAnecdote(anecdote.id))
             dispatch(newNotification(`you voted for '${anecdote.content}'`))
           }}
