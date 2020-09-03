@@ -1,11 +1,20 @@
-export const newNotification = (message) => {
+export const setNotification = (message, seconds) => {
+  return async (dispatch) => {
+    dispatch(newNotification(message));
+    setTimeout(() => {
+      dispatch(removeNotificationWithMessage(message));
+    }, seconds * 1000);
+  }
+};
+
+const newNotification = (message) => {
   return {
     type: 'NEW_NOTIFICATION',
     message
   };
 };
 
-export const removeNotificationWithMessage = (message) => {
+const removeNotificationWithMessage = (message) => {
   return {
     type: 'REMOVE_NOTIFICATION',
     message
