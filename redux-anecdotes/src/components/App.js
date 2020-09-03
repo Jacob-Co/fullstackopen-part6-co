@@ -14,7 +14,10 @@ const App = () => {
 
   useEffect(() => {
     anecdoteService
-      .getAll().then(anecdotes => disptach(initializeAnecdote(anecdotes)));
+      .getAll().then(anecdotes => {
+        console.log('useEffect')
+        disptach(initializeAnecdote(anecdotes))
+      });
   }, [disptach]);
 
   return (
