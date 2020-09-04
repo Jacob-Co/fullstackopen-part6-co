@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import AnecdoteForm from './AnecdoteForm';
 import AnecdoteList from './AnecdoteList';
 import Notification from './Notification';
-import AnecdoteFilter from './AnecdoteFilter'
+import AnecdoteFilter from './AnecdoteFilter';
 
 import { initializeAnecdote } from '../reducers/anecdoteReducer';
 

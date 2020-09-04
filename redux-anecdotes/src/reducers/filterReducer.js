@@ -8,6 +8,6 @@ export const newFilter = (filter) => {
 const filterReducer = (state='', action) => {
   if (action.type === 'NEW_FILTER') return action.filter;
   return state;
-}
+};
 
 export default filterReducer;

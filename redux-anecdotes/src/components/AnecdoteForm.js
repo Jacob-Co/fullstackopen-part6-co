@@ -15,8 +15,8 @@ const AnecdoteForm = ({ createAnecdote }) => {
       <div><input name="anecdote" /></div>
       <button>create</button>
     </form>
-  )
-}
+  );
+};
 
 const mapDispatchToProps = {
   createAnecdote,

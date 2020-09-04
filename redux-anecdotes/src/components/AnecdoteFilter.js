@@ -13,7 +13,7 @@ const AnecdoteFilter = ({ newFilter }) => {
 
 const mapDispatchToProps = {
   newFilter
-}
+};
 
 const ConnectedAnecdoteFilter = connect(null, mapDispatchToProps)(AnecdoteFilter);
 export default ConnectedAnecdoteFilter;

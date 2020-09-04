@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { voteAnecdote } from '../reducers/anecdoteReducer';
 import { setNotification } from '../reducers/notificationReducer';
 
-const Anecdote = ({content, votes, handleClick}) => (
+const Anecdote = ({ content, votes, handleClick }) => (
   <div>
     <div>
       {content}
@@ -18,25 +18,25 @@ const Anecdote = ({content, votes, handleClick}) => (
 const AnecdoteList = ({ anecdotes, voteAnecdote, setNotification }) => {
   return (
     <>
-    {anecdotes.map(anecdote =>
-        <Anecdote 
+      {anecdotes.map(anecdote =>
+        <Anecdote
           key={anecdote.id}
           content={anecdote.content}
           votes={anecdote.votes}
           handleClick={() => {
-            voteAnecdote(anecdote.id)
-            setNotification(`you voted for '${anecdote.content}'`, 5)
+            voteAnecdote(anecdote.id);
+            setNotification(`you voted for '${anecdote.content}'`, 5);
           }}
         />
       )}
     </>
-  )
+  );
 };
 
 const mapStateToProps = ({ anecdotes, filter }) => {
-  return {anecdotes: anecdotes
+  return { anecdotes: anecdotes
     .filter(anecdotes => anecdotes.content.includes(filter))
-    .sort((an1, an2) => an2.votes - an1.votes)}
+    .sort((an1, an2) => an2.votes - an1.votes) };
 };
 
 const mapDispatchToProps = {
