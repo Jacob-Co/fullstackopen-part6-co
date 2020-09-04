@@ -44,6 +44,11 @@
       "content": "Once upon a time...",
       "votes": 6,
       "id": "06gb4Gn"
+    },
+    {
+      "content": "Using connect vs hooks is old school",
+      "votes": 2,
+      "id": "Y72yO3q"
     }
   ]
 }
