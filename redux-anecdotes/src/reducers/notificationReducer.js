@@ -1,34 +1,37 @@
 export const setNotification = (message, seconds) => {
   return async (dispatch) => {
-    dispatch(newNotification(message));
-    setTimeout(() => {
-      dispatch(removeNotificationWithMessage(message));
-    }, seconds * 1000);
+    const timerId = setTimeout(() => {
+      dispatch(removeNotification());
+    }, seconds * 500);
+    dispatch(newNotification(message, timerId));
   }
 };
 
-const newNotification = (message) => {
+const newNotification = (message, timerId) => {
   return {
     type: 'NEW_NOTIFICATION',
-    message
+    data: {
+      message,
+      timerId
+    }
   };
 };
 
-const removeNotificationWithMessage = (message) => {
+const removeNotification = () => {
   return {
-    type: 'REMOVE_NOTIFICATION',
-    message
+    type: 'REMOVE_NOTIFICATION'
   };
 };
 
-const notificationReducer = (state = '', action) => {
+const initialState = { message: null, timerId: null }
+
+const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'NEW_NOTIFICATION':
-      return action.message;
+      if (state.timerId) clearTimeout(state.timerId);
+      return {message: action.data.message, timerId: action.data.timerId};
     case 'REMOVE_NOTIFICATION':
-      return action.message === state
-        ? ''
-        : state
+      return initialState;
     default:
       return state;
   }
